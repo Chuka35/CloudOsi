@@ -1,0 +1,308 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* CloudOS Windows 11 Fluent Design Colors */
+  --desktop-bg: #1a1a2e;
+  --taskbar-bg: rgba(32, 32, 32, 0.85);
+  --acrylic-surface: rgba(44, 44, 44, 0.75);
+  --acrylic-border: rgba(255, 255, 255, 0.08);
+  --window-bg: rgba(28, 28, 28, 0.97);
+  --window-title-bar: rgba(40, 40, 40, 0.98);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.06);
+  --input-border: rgba(255, 255, 255, 0.12);
+  --hover-bg: rgba(255, 255, 255, 0.08);
+  --active-bg: rgba(255, 255, 255, 0.12);
+  --selected-bg: rgba(0, 120, 212, 0.20);
+
+  /* Windows Blue / Accent (dynamic via AccentColorSync) */
+  --accent: #0078D4;
+  --windows-blue: #0078D4;
+  --windows-blue-hover: #1084D8;
+  --windows-blue-light: #60CDFF;
+  --windows-blue-glow: rgba(0, 120, 212, 0.30);
+
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.70);
+  --text-tertiary: rgba(255, 255, 255, 0.40);
+  --text-disabled: rgba(255, 255, 255, 0.30);
+
+  /* Status Colors */
+  --success: #6CCB5F;
+  --warning: #FCE100;
+  --error: #FF5252;
+
+  /* Standard shadcn tokens */
+  --background: #0f0f23;
+  --foreground: #FFFFFF;
+  --card: rgba(28, 28, 28, 0.97);
+  --card-foreground: #FFFFFF;
+  --popover: rgba(32, 32, 32, 0.96);
+  --popover-foreground: #FFFFFF;
+  --primary: #0078D4;
+  --primary-foreground: #FFFFFF;
+  --secondary: rgba(255, 255, 255, 0.08);
+  --secondary-foreground: #FFFFFF;
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: rgba(255, 255, 255, 0.70);
+  --accent: rgba(0, 120, 212, 0.20);
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF5252;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.06);
+  --ring: #0078D4;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Segoe UI Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Aurora Wallpaper Animation */
+@keyframes aurora-drift-1 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(100px, 50px);
+  }
+}
+
+@keyframes aurora-drift-2 {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-80px, -40px);
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes window-open {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes window-close {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+@keyframes window-minimize {
+  from {
+    transform: scaleY(1);
+    transform-origin: bottom center;
+  }
+  to {
+    transform: scaleY(0);
+    transform-origin: bottom center;
+  }
+}
+
+@keyframes window-restore {
+  from {
+    transform: scaleY(0);
+    transform-origin: bottom center;
+  }
+  to {
+    transform: scaleY(1);
+    transform-origin: bottom center;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes progress-deplete {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.animate-aurora-1 {
+  animation: aurora-drift-1 15s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora-drift-2 20s ease-in-out infinite;
+}
+
+.animate-star-twinkle {
+  animation: star-twinkle 3s ease-in-out infinite;
+}
+
+.animate-window-open {
+  animation: window-open 200ms cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+.animate-window-close {
+  animation: window-close 150ms ease-in forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 200ms cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 300ms ease-out forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+.animate-progress-deplete {
+  animation: progress-deplete 4s linear forwards;
+}
+
+/* Acrylic effect classes */
+.acrylic {
+  background: var(--taskbar-bg);
+  backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid var(--acrylic-border);
+}
+
+.acrylic-light {
+  background: var(--acrylic-surface);
+  backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid var(--acrylic-border);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Text selection */
+::selection {
+  background: var(--windows-blue);
+  color: white;
+}
+
+/* Button press animation */
+.btn-press:active {
+  transform: scale(0.97);
+  transition: transform 100ms;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

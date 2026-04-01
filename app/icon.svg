@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86 72" fill="none">
+  <!-- Layer 4 — back, lightest teal -->
+  <g transform="translate(8,8)">
+    <circle cx="30" cy="34" r="19" fill="#93C5FD"/>
+    <circle cx="55" cy="41" r="13" fill="#93C5FD"/>
+    <rect x="11" y="41" width="57" height="20" rx="10" fill="#93C5FD"/>
+  </g>
+  <!-- Layer 3 — light blue -->
+  <g transform="translate(5,5)">
+    <circle cx="30" cy="34" r="19" fill="#60A5FA"/>
+    <circle cx="55" cy="41" r="13" fill="#60A5FA"/>
+    <rect x="11" y="41" width="57" height="20" rx="10" fill="#60A5FA"/>
+  </g>
+  <!-- Layer 2 — medium blue -->
+  <g transform="translate(2,2)">
+    <circle cx="30" cy="34" r="19" fill="#2563EB"/>
+    <circle cx="55" cy="41" r="13" fill="#2563EB"/>
+    <rect x="11" y="41" width="57" height="20" rx="10" fill="#2563EB"/>
+  </g>
+  <!-- Layer 1 — front, dark navy -->
+  <g transform="translate(0,0)">
+    <circle cx="30" cy="34" r="19" fill="#1D4ED8"/>
+    <circle cx="55" cy="41" r="13" fill="#1D4ED8"/>
+    <rect x="11" y="41" width="57" height="20" rx="10" fill="#1D4ED8"/>
+  </g>
+</svg>
